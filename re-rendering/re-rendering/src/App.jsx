@@ -4,24 +4,28 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [title, setTitle] = useState("Abhinandan1")
+
+  function updateTitle(){
+    setTitle("my name is "+ Math.random());
+  }
 
   return (
 
-    <div>   //  we can either write React.Fragment, we can either write <div> or we can even 
-                      // write <> </> but the point is there has to be a parent element
+    <React.Fragment>
 
-         <Header title="Abhinandan1"></Header>
+         <button onClick={updateTitle}>Update the title</button>
+         <Header title={title}></Header>
          <Header title="Abhinandan2"></Header>
 
 
-    </div>
+    </React.Fragment>
   )
 }
 
 
-function Header({title}){   // here we could have simply written (title) , it would still have been fine
-                            // but we are doing ({title}) , because we wanted to utilize the destructuring property
+function Header({title}){
+  console.log("re-rendered");
   return <div>
     {title}
   </div>
