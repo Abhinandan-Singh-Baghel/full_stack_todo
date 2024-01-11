@@ -3,32 +3,40 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [title, setTitle] = useState("Abhinandan1")
+function App(){
+
+  const [title , setTitle] = useState("my name is abhinandan");
 
   function updateTitle(){
     setTitle("my name is "+ Math.random());
   }
 
+
   return (
+    <div>
 
-    <React.Fragment>
+      <button onClick={updateTitle}>Update the title</button>
+      <Header title = {title}></Header>
+      <Header title = "Abhinandan"></Header>
+      <Header title = "Abhinandan"></Header>
+      <Header title = "Abhinandan"></Header>
+      <Header title = "Abhinandan"></Header>
+      <Header title = "Abhinandan"></Header>
+      <Header title = "Abhinandan"></Header>
 
-         <button onClick={updateTitle}>Update the title</button>
-         <Header title={title}></Header>
-         <Header title="Abhinandan2"></Header>
-
-
-    </React.Fragment>
+     
+    </div>
   )
 }
 
 
-function Header({title}){
-  console.log("re-rendered");
+const Header = React.memo(function Header({title}){
   return <div>
     {title}
   </div>
-}
+})
+
+
+
 
 export default App
