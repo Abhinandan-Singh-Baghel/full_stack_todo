@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+let counter = 4;
+
 function App(){
 
   const [todos , setTodos] = useState([{
@@ -21,7 +23,7 @@ function App(){
 
   function addTodo(){
     setTodos([...todos,{
-      id:4,
+      id:counter++,
       title: Math.random(),
       description: Math.random()
     }])
