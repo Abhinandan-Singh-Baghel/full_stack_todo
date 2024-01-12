@@ -5,36 +5,56 @@ import './App.css'
 
 function App(){
 
-  const [title , setTitle] = useState("my name is abhinandan");
+  const [todos , setTodos] = useState([{
+    id: 1,
+    title: "Go to gym",
+    description: "go to gym today"
+  },{
+    id: 2,
+    title: "Go to class",
+    description: "Go to class today"
+  },{
+    id: 3,
+    title: "go to canteen",
+    description: "go to canteen today"
+  }])
 
-  function updateTitle(){
-    setTitle("my name is "+ Math.random());
+  function addTodo(){
+    setTodos([...todos,{
+      id:4,
+      title: Math.random(),
+      description: Math.random()
+    }])
   }
-
 
   return (
     <div>
 
-      <button onClick={updateTitle}>Update the title</button>
-      <Header title = {title}></Header>
-      <Header title = "Abhinandan"></Header>
-      <Header title = "Abhinandan"></Header>
-      <Header title = "Abhinandan"></Header>
-      <Header title = "Abhinandan"></Header>
-      <Header title = "Abhinandan"></Header>
-      <Header title = "Abhinandan"></Header>
+      <button onClick={addTodo}>Add a todo</button>
 
-     
+      {todos.map(todo => <Todo title={todo.title} description={todo.description} />)}
+
+
+
+
     </div>
   )
+
+
+}
+
+function Todo({title, description}){
+  return <div>
+    <h1>
+      {title}
+    </h1>
+    <h5>
+      {description}
+    </h5>
+  </div>
 }
 
 
-const Header = React.memo(function Header({title}){
-  return <div>
-    {title}
-  </div>
-})
 
 
 
