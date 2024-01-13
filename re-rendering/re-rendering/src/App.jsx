@@ -7,38 +7,51 @@ let counter = 4;
 
 function App(){
 
-  return <div style={{display: "flex"}}>
+  const [todos, setTodos] = useState([{
+    id: 0,
+    title: "go to gym",
+    description: "go to gym from 1-2"
+  },
+  {
+    id: 1,
+    title: "eat food",
+    description: "eat food from 2-4"
+  },
+  {
+    id: 2,
+    title: "study math",
+    description: "study math from 4-6"
+  }]);
 
-    <Card>
-      hi there
-    </Card>
-    <Card>
-      <div>
-        hello from the 2nd card
-      </div>
-    </Card>
+  const [counter, setCouter] = useState(0);
 
-  </div>
-
-
-
-}
-
-
-function Card({children}){
-  return <div style={
-    {  border: "1px solid black",
-    padding: 10,
-    margin: 10
+  function increaseCount(){
+    setCouter(counter + 1);
   }
-  }>
-    {children}
 
-  </div>
+  const filteredTodos = todos.filter(x => x.id % 2 == 0);
+
+  return (
+    <div>
+      <button onClick={increaseCount} Increase Count ></button>
+      {filteredTodos.map(todo => <Todo title = {todo.title} description= {todo.description}></Todo>)}
+    </div>
+  )
+
 }
 
 
 
+const Todo = React.memo(function({title, description}){
+  return <div>
+    <h1>
+      {title}
+    </h1>
+    <h3>
+      {description}
+    </h3>
+  </div>
+})
 
 
 
