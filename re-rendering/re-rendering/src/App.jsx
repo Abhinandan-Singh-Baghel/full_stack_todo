@@ -1,32 +1,40 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
+import {memo} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 
 function App(){
-  const [counter, setCounter] = useState(0);
-  const [inputValue, setInputValue] = useState(1);
+  const [todos, setTodos] = useState([]);
 
-  let count = 0;
+  useEffect(()=>{
+    fetch("https://sum-server.100xdevs.com/todos")
+      .then(async function(res){
+        const json = await res.json();
+        setTodos(json.todos); 
+      })
+  }, [])
 
-  for(let i = 1; i<=inputValue; i++){
-    count = count + i;
-
-  }
   return <div>
-    <input onChange={function(e){
-      setInputValue(e.target.value);
-    }} placeholder={"Find sum from 1 to n"}></input>
-    <br />
-    Sum from 1 to {inputValue} is {count}
-    <br/>
-    <button onClick={()=>{
-      setCounter(counter + 1);
-    }}>Counter ({counter})</button>
+   { todos.map(todo => <Todo key = {todo.id} title = {todo.title} description={todo.description}></Todo>)}
   </div>
 }
 
 
+
+function Todo({id, title, description}){
+  return <div>
+    <h1>
+      {id}
+    </h1>
+    <h1>
+      {title}
+    </h1>
+    <h4>
+      {description}
+    </h4>
+  </div>
+}
 
 export default App
