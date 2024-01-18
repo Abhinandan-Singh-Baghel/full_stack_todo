@@ -3,29 +3,30 @@ import {memo} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import Dashboard from './Components/Dashboard'
+import Landing from './Components/Landing'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+// single page application
+// client side bundle
+// client side routing
 
-
-function App() {
-  const divRef = useRef();
-
-  useEffect(() => {
-    setTimeout(()=>{
-      divRef.current.innerHTML = "10"
-
-    },5000);
-  },[])
-
-  const incomeTax = 20000;
-  
+function App(){
 
   return (
-    <div>
-      hi there , your income tax returns are <div ref = {divRef}>{incomeTax}</div>
-      
-    </div>
+    <BrowserRouter>
+
+    <Routes>
+
+      <Route path = "/dashboard" element = {<Dashboard/>}/>
+      <Route path = "/" element = {<Landing/>}/>
+    </Routes>
+    
+    
+    </BrowserRouter>
   )
 }
+
 
 
 export default App
