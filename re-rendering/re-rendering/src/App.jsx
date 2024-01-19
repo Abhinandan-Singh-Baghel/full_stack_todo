@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Profile from './Components/Profile'
-import {memo} from 'react'
+import BackgroundChanger from './Components/BackgroundChanger';
+// import {memo} from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 // import './App.css'
@@ -27,6 +28,10 @@ const App = () => {
     <div className='app'>
       <h1>My App</h1>
       <Profile user={user}/>
+      <br/>
+      <br/>
+
+      <BackgroundChanger/>
 
     </div>
   )
