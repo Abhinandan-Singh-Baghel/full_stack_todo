@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Custom React</title>
+
+    </head>
+
+    <body>
+
+        <!-- Target container for rendering -->
+        <div id="root"></div>
+
+        <script>
+            // Step 1 : Create an object for a React Element
+
+            const reactElement = {
+                type: 'a',
+                props: {
+                    href: 'https://www.google.com',
+                    target: '_blank',
+                    rel: 'None',
+                    children: ['Click me!' , ' hi there ']
+                }
+            };
+
+            // Step 2: Create a function to generate HTML from the React Element
+            
+            function createElement(node){
+                if(typeof node == 'string'){
+                    return node;
+                }
+
+                const { type, props } = node;
+                const children = props.children || [];
+
+                const childrenHTML = children.map(createElement).join('');
+
+                return `<${type} ${Object.entries(props).map(([key, value]) => `${key}="${value}"`).join(' ')}>${childrenHTML}</${type}>`;
+
+            }
+
+            // Step 3: Create a function for custom rendering
+
+            function customRender(element, containerId){
+                const container = document.getElementById(containerId);
+                container.innerHTML = createElement(element);
+            }
+
+            // Render the anchor tag to the 'root' container
+
+            customRender(reactElement, 'root');
+        </script>
+
+    </body>
+</html>
