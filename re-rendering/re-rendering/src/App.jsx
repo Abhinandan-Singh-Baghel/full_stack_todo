@@ -1,6 +1,7 @@
 import React, { useCallback, useRef, useEffect, useState, useLayoutEffect } from 'react'
 import Profile from './Components/Profile'
 import BackgroundChanger from './Components/BackgroundChanger';
+import ParagraphGenerator from './Components/ParagraphGenerator';
 // import {memo} from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -32,6 +33,10 @@ const App = () => {
       <br/>
 
       <BackgroundChanger/>
+
+      <h1>Paragraph Generator App</h1>
+
+      <ParagraphGenerator/>
 
     </div>
   )
