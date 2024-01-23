@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useEffect, useState, useLayoutEffect } from
 import Profile from './Components/Profile'
 import BackgroundChanger from './Components/BackgroundChanger';
 import ParagraphGenerator from './Components/ParagraphGenerator';
+import OTPLogin from './Components/OTPLogin';
 // import {memo} from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -37,6 +38,10 @@ const App = () => {
       <h1>Paragraph Generator App</h1>
 
       <ParagraphGenerator/>
+      <br/>
+      <br/>
+
+      <OTPLogin/>
 
     </div>
   )
