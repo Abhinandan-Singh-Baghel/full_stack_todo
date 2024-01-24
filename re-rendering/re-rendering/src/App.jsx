@@ -3,6 +3,8 @@ import Profile from './Components/Profile'
 import BackgroundChanger from './Components/BackgroundChanger';
 import ParagraphGenerator from './Components/ParagraphGenerator';
 import OTPLogin from './Components/OTPLogin';
+import GithubInfoCardl from './Components/GitHubInfoCard';
+
 // import {memo} from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
@@ -42,6 +44,11 @@ const App = () => {
       <br/>
 
       <OTPLogin/>
+
+      <br/>
+      <br/>
+
+      <GithubInfoCardl username ="Abhinandan-Singh-Baghel"/>
 
     </div>
   )
